@@ -22,7 +22,7 @@ main {
     padding-top: 1.5rem;
     align-items: center;
     padding-inline: 3rem;
-    --progressBar: 20%;
+    --progressBar: 0%;
 }
 
 .audio_player__progress_bar {
@@ -33,6 +33,7 @@ main {
     width: 100%;
     height: 1rem;
     border: none;
+    background: rgba(126,120,245,1);
     background: linear-gradient(90deg, rgba(126,120,245,1) var(--progressBar), rgba(44, 44, 44, 0.479) var(--progressBar) );
 
     accent-color: #F55050;
