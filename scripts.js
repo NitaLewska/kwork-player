@@ -131,6 +131,7 @@ function toggleVolume() {
 
 function changeProgressBar() {
     audio.currentTime = progressBar.value;
+    currentTime.innerHTML = secondsToClock(audio.currentTime)
     progressBar.style.setProperty('--progressBar', `${progressBar.value / audio.duration * 100}%`)
 }
 
