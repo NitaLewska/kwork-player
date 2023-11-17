@@ -137,12 +137,11 @@ function changeProgressBar() {
 progressBar.addEventListener("input", changeProgressBar);
 
 function changeTrack(e) {
-    currentTrack = e.target.closest('.track_card').id
+    currentTrack = +e.target.closest('.track_card').id
     refreshPlayer()
     playAudio()
     playing = true
     playButton.classList.add('pause')
-    console.log(currentTrack)
 }
 
 let cards = Array.from(document.querySelectorAll('.track_card'))
