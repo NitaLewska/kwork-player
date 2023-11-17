@@ -11,6 +11,14 @@ main {
     color: rgb(114, 114, 114);
 }
 
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    gap: 20px;
+}
+
 #audio_player {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: fixed;
@@ -184,4 +192,14 @@ main {
         width: 6rem;
         height: 0.5rem;
     }
+}
+
+
+
+/* стили карточки */
+
+.track_card {
+    width: 300px;
+    height: 100px;
+    background-color: aliceblue;
 }
