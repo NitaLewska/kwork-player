@@ -5,10 +5,17 @@
     margin: 0;
 }
 
-main {
-    height: 200vh;
+body {
+    min-height: 120vh;
     background-color: rgb(2, 3, 61);
-    color: rgb(114, 114, 114);
+}
+
+main {
+    min-height: 120vh;
+    max-width: 1360px;
+    width: 90vw;
+    background-color:rgb(255, 255, 255);
+    margin: 0 auto  ;
 }
 
 main > section {
@@ -23,6 +30,7 @@ main > section {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: fixed;
     bottom: 0;
+    left: 0;
     background-color: rgb(255, 255, 255);
     width: 100vw;
     height: 6rem;
@@ -199,12 +207,49 @@ main > section {
 /* стили карточки */
 
 .track_card {
-    width: 300px;
-    height: 100px;
-    background-color: aliceblue;
-    display: flex;
+    width: 100%;
+    height: 40px;
+    border: 1px transparent dotted;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.track_card:hover {
+    border: 1px black dotted;
+    background-color: rgba(126, 120, 245, 0.096);
+}
+
+.track_card > .track_id_plus_one{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+}
+
+.track_card:hover > .track_id_plus_one, .track_card.active.pause > .track_id_plus_one {
+    color: transparent;
+    background-image: url(icons/play.svg);
+}
+
+.track_card.active.pause:hover > .track_id_plus_one {
+    color: transparent;
+    background-image: url(icons/play_colored.svg);
+}
+
+.track_card.active > .track_id_plus_one {
+    color: transparent;
+    background-image: url(icons/pause_colored.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.track_card.active:hover > .track_id_plus_one {
+    color: transparent;
+    background-image: url(icons/pause.svg);
+}
+

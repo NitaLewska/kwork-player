@@ -50,15 +50,22 @@ function togglePlay() {
         pauseAudio()
         playing = false
         playButton.classList.remove('pause')
+        cards[currentTrack].classList.add('pause')
     } else {
         playAudio()
         playing = true
         playButton.classList.add('pause')
+        cards[currentTrack].classList.add('active')
+        cards[currentTrack].classList.remove('pause')
     }
 }
 
 function nextTrack() {
+    console.log(currentTrack)
+    cards[currentTrack].classList.remove('pause')
+    cards[currentTrack].classList.remove('active')
     currentTrack = currentTrack === (tracks.length - 1) ? 0 : currentTrack + 1
+    cards[currentTrack].classList.add('active')
     refreshPlayer()
     if (playing) {
         playAudio()
@@ -66,7 +73,10 @@ function nextTrack() {
 }
 
 function previousTrack() {
+    cards[currentTrack].classList.remove('pause')
+    cards[currentTrack].classList.remove('active')
     currentTrack = currentTrack === 0 ? tracks.length - 1 : currentTrack - 1
+    cards[currentTrack].classList.add('active')
     refreshPlayer()
     if (playing) {
         playAudio()
@@ -137,11 +147,19 @@ function changeProgressBar() {
 progressBar.addEventListener("input", changeProgressBar);
 
 function changeTrack(e) {
-    currentTrack = +e.target.closest('.track_card').id
-    refreshPlayer()
-    playAudio()
-    playing = true
-    playButton.classList.add('pause')
+    if (currentTrack === +e.target.closest('.track_card').id) {
+        togglePlay()
+    } else {
+        cards[currentTrack].classList.remove('pause')
+        cards[currentTrack].classList.remove('active')
+        currentTrack = +e.target.closest('.track_card').id
+        refreshPlayer()
+        playAudio()
+        playing = true
+        playButton.classList.add('pause')
+        cards[currentTrack].classList.add('active')
+    }
+
 }
 
 let cards = Array.from(document.querySelectorAll('.track_card'))
