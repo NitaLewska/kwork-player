@@ -217,6 +217,10 @@ main > section {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.track_name {
+    justify-self: start;
+}
+
 .track_card:hover {
     border: 1px black dotted;
     background-color: rgba(126, 120, 245, 0.096);
