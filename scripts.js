@@ -61,7 +61,6 @@ function togglePlay() {
 }
 
 function nextTrack() {
-    console.log(currentTrack)
     cards[currentTrack].classList.remove('pause')
     cards[currentTrack].classList.remove('active')
     currentTrack = currentTrack === (tracks.length - 1) ? 0 : currentTrack + 1
