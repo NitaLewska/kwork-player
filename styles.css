@@ -211,14 +211,36 @@ main > section {
     height: 40px;
     border: 1px transparent dotted;
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     justify-items: center;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.track_name {
+.track_card .track_name {
     justify-self: start;
+}
+
+.track_card .band_name {
+    grid-area: 2/3/3/2;
+    justify-self: start;
+}
+
+.track_card .track_length {
+    grid-area: 1/5/3/4;
+}
+
+.track_card .download_track {
+    background-image: url(icons/download.svg);
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border: none;
+    background-color: unset;
+    cursor: pointer;
+    grid-area: 1/4/3/3;
+    justify-self: center;
+
 }
 
 .track_card:hover {
@@ -233,6 +255,7 @@ main > section {
     background-repeat: no-repeat;
     background-position: center center;
     text-align: center;
+    grid-area: 1/2/3/1;
 }
 
 .track_card:hover > .track_id_plus_one, .track_card.active.pause > .track_id_plus_one {
